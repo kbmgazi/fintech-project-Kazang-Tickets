@@ -1,0 +1,478 @@
+/*
+ * Kazang Pulse look and feel: navy status bar, yellow buttons, big touch targets.
+ * The @media print block at the bottom makes the till slip the only thing printed.
+ */
+
+:root {
+  --navy: #0b2c4a;
+  --yellow: #ffc72c;
+  --grey: #f2f2f2;
+  --green: #1a9e4a;
+}
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  background: var(--grey);
+  color: #1b1b1b;
+  user-select: none;
+}
+.hidden {
+  display: none !important;
+}
+button,
+input {
+  font-family: inherit;
+  font-size: 16px;
+}
+#topbar {
+  background: var(--navy);
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 10px;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+#topbar .l,
+#topbar .r {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#topbar .c {
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+  flex: 1;
+}
+.lang button {
+  background: none;
+  border: 1px solid #5d7a94;
+  color: #fff;
+  border-radius: 6px;
+  min-width: 34px;
+  min-height: 30px;
+  padding: 0 6px;
+}
+.lang button.on {
+  background: var(--yellow);
+  color: var(--navy);
+  border-color: var(--yellow);
+  font-weight: bold;
+}
+.adminlink {
+  color: var(--yellow);
+  font-size: 12px;
+  background: none;
+  border: 0;
+  text-decoration: underline;
+  min-height: 30px;
+  padding: 0 4px;
+}
+.bat {
+  display: inline-block;
+  width: 22px;
+  height: 11px;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  position: relative;
+}
+.bat:after {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  bottom: 1px;
+  width: 70%;
+  background: #4cd37b;
+}
+.sig {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+}
+.sig i {
+  width: 3px;
+  background: #fff;
+  display: block;
+}
+#tabs {
+  background: #fff;
+  display: flex;
+  border-bottom: 1px solid #d5d9de;
+}
+#tabs button {
+  flex: 1;
+  min-height: 48px;
+  background: none;
+  border: 0;
+  border-bottom: 4px solid transparent;
+  color: var(--navy);
+  font-weight: bold;
+}
+#tabs button.on {
+  border-bottom-color: var(--yellow);
+}
+.view {
+  padding: 12px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+h2.sec {
+  margin: 14px 0 6px;
+  font-size: 18px;
+  color: var(--navy);
+  letter-spacing: 1px;
+}
+h3.grp {
+  margin: 12px 0 6px;
+  font-size: 13px;
+  color: #5b6b7a;
+  font-weight: normal;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+@media (min-width: 700px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.tile {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  min-height: 96px;
+  padding: 10px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 2px solid transparent;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--navy);
+  font-weight: bold;
+}
+.tile .ic {
+  font-size: 30px;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.tile small {
+  font-weight: normal;
+  color: #5b6b7a;
+  font-size: 11px;
+  margin-top: 2px;
+}
+.tile.new {
+  border-color: var(--yellow);
+}
+.tile:active,
+.card:active {
+  background: #fff7d9;
+}
+.badge {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: var(--yellow);
+  color: var(--navy);
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 2px 5px;
+}
+.star {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 0;
+  font-size: 20px;
+  color: #c6ccd3;
+}
+.star.on {
+  color: var(--yellow);
+}
+.btnrow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.btnrow .tile {
+  flex: 1;
+  min-width: 96px;
+}
+.btn {
+  min-height: 52px;
+  border: 0;
+  border-radius: 10px;
+  font-weight: bold;
+  width: 100%;
+  padding: 0 14px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.btn.y {
+  background: var(--yellow);
+  color: var(--navy);
+}
+.btn.g {
+  background: var(--green);
+  color: #fff;
+}
+.btn.n {
+  background: var(--navy);
+  color: #fff;
+}
+.btn.w {
+  background: #fff;
+  color: var(--navy);
+  border: 2px solid var(--navy);
+}
+.btn.r {
+  background: #c0392b;
+  color: #fff;
+}
+.back {
+  background: none;
+  border: 0;
+  color: var(--navy);
+  font-weight: bold;
+  min-height: 48px;
+  padding: 0;
+}
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="password"],
+input[type="search"] {
+  width: 100%;
+  min-height: 48px;
+  border: 2px solid #cfd6dd;
+  border-radius: 10px;
+  padding: 0 12px;
+  background: #fff;
+  user-select: text;
+  margin: 4px 0 8px;
+}
+label {
+  font-size: 14px;
+  color: #44566a;
+}
+.chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 0 8px;
+}
+.chip {
+  flex: none;
+  min-height: 40px;
+  border: 2px solid var(--navy);
+  background: #fff;
+  color: var(--navy);
+  border-radius: 20px;
+  padding: 0 14px;
+  font-weight: bold;
+}
+.chip.on {
+  background: var(--navy);
+  color: #fff;
+}
+.card {
+  display: flex;
+  gap: 12px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  align-items: center;
+}
+.poster {
+  flex: none;
+  width: 64px;
+  height: 84px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card b {
+  color: var(--navy);
+}
+.card .m {
+  font-size: 13px;
+  color: #5b6b7a;
+  margin: 2px 0;
+}
+.panel {
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+}
+.row.big {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--navy);
+}
+.qty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 8px 0;
+}
+.qty button {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  border: 2px solid var(--navy);
+  background: #fff;
+  font-size: 28px;
+  color: var(--navy);
+}
+.qty span {
+  font-size: 30px;
+  font-weight: bold;
+  min-width: 40px;
+  text-align: center;
+}
+.timer {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--navy);
+  letter-spacing: 2px;
+}
+.pm {
+  display: flex;
+  gap: 8px;
+  margin: 6px 0;
+}
+.pm div {
+  flex: 1;
+  text-align: center;
+  border: 2px solid #cfd6dd;
+  border-radius: 10px;
+  padding: 8px 2px;
+  font-size: 13px;
+  color: #8a97a5;
+}
+.pm div.on {
+  border-color: var(--green);
+  color: var(--green);
+  font-weight: bold;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+th,
+td {
+  text-align: left;
+  padding: 6px 4px;
+  border-bottom: 1px solid #e3e7ec;
+}
+#slip {
+  background: #fff;
+  border: 2px dashed #555;
+  padding: 16px;
+  text-align: center;
+  max-width: 340px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1.5;
+  user-select: text;
+}
+#slip .t {
+  font-weight: bold;
+  font-size: 16px;
+}
+#slip .success {
+  background: #e8f7ee;
+  border: 1px solid var(--green);
+  border-radius: 8px;
+  color: #137a38;
+  font-weight: bold;
+  margin: 8px 0;
+  padding: 8px;
+}
+.transaction-success {
+  background: #e8f7ee;
+  border: 2px solid var(--green);
+  border-radius: 10px;
+  color: #137a38;
+  font-weight: bold;
+  margin: 10px 0;
+  padding: 12px;
+  text-align: center;
+}
+#slip img {
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin: 6px auto;
+}
+#toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  background: #222;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 10px;
+  z-index: 9;
+  max-width: 90%;
+  text-align: center;
+}
+@media print {
+  body {
+    background: #fff;
+  }
+  #topbar,
+  #tabs,
+  .view,
+  #toast,
+  .noprint {
+    display: none !important;
+  }
+  #v-slip {
+    display: block !important;
+    padding: 0;
+  }
+  #slip {
+    border: 1px dashed #000;
+    max-width: 100%;
+  }
+}
